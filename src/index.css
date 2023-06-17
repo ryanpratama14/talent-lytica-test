@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Work Sans", sans-serif;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  label {
+    @apply text-lg;
+  }
+  select {
+    @apply outline-none border-[1px] border-gray-300 rounded-md;
+  }
+  button {
+    @apply px-6 py-2 w-fit text-white rounded-md active:scale-95 animate;
+  }
+}
+
+@layer components {
+  .animate {
+    @apply transition-all duration-300;
+  }
+}
