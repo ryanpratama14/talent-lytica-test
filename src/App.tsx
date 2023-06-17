@@ -54,22 +54,23 @@ export default function App(): React.JSX.Element {
                   <label>Student {i + 1}</label>
                 </figure>
                 {/* Selects */}
-                {[...Array(numAspects).keys()].map((x) => {
+                {[...Array(numAspects).keys()].map((j) => {
                   return (
                     <select
-                      name={`aspek_penilaian_${x + 1}`}
+                      name={`aspek_penilaian_${j + 1}`}
                       id={`mahasiswa_${i + 1}`}
                       onChange={handleChange}
-                      key={x}
+                      key={j}
                       value={
-                        studentGrades[`aspek_penilaian_${x + 1}`][
+                        studentGrades[`aspek_penilaian_${j + 1}`][
                           `mahasiswa_${i + 1}`
                         ]
                       }
                     >
-                      {[...Array(maxGrade).keys()].map((y) => (
-                        <option key={y + 1} value={y + 1}>
-                          {y + 1}
+                      <option>Select Grade</option>
+                      {[...Array(maxGrade).keys()].map((k) => (
+                        <option key={k + 1} value={k + 1}>
+                          {k + 1}
                         </option>
                       ))}
                     </select>

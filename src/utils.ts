@@ -1,10 +1,10 @@
 type DataItems = {
   [key: string]: {
-    [key: string]: number;
+    [key: string]: number | undefined;
   };
 };
 
-const defaultStudentValue: number = 1; // `value` prop on `select` should not be null. (rule: react-dom.development.js:86)
+const defaultStudentValue = undefined;
 export const numAspects: number = 4;
 export const numStudents: number = 12;
 export const maxGrade: number = 10;
