@@ -5,13 +5,13 @@ import { initialValue, maxGrade, numAspects, numStudents } from "./utils";
 import { Toaster, toast } from "react-hot-toast";
 
 export default function App(): React.JSX.Element {
-  const [studentGrades, setStudentGrades] = useState(initialValue);
+  const [data, setData] = useState(initialValue);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setStudentGrades({
-      ...studentGrades,
+    setData({
+      ...data,
       [e.target.name]: {
-        ...studentGrades[e.target.name],
+        ...data[e.target.name],
         [e.target.id]: +e.target.value,
       },
     });
@@ -19,7 +19,7 @@ export default function App(): React.JSX.Element {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const json = JSON.stringify(studentGrades);
+    const json = JSON.stringify(data);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -62,9 +62,7 @@ export default function App(): React.JSX.Element {
                       onChange={handleChange}
                       key={j}
                       value={
-                        studentGrades[`aspek_penilaian_${j + 1}`][
-                          `mahasiswa_${i + 1}`
-                        ]
+                        data[`aspek_penilaian_${j + 1}`][`mahasiswa_${i + 1}`]
                       }
                     >
                       <option>Select Grade</option>
